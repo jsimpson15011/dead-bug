@@ -21,8 +21,19 @@
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Content Remove="$(SpaRoot)**" />
+    <Content Include=".github\workflows\dotnet.yml" />
     <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="website\web.config" />
+    <_ContentIncludedByDefault Remove="website\appsettings.Development.json" />
+    <_ContentIncludedByDefault Remove="website\appsettings.json" />
+    <_ContentIncludedByDefault Remove="website\dead-bug.deps.json" />
+    <_ContentIncludedByDefault Remove="website\dead-bug.runtimeconfig.json" />
+    <_ContentIncludedByDefault Remove="website\wwwroot\asset-manifest.json" />
+    <_ContentIncludedByDefault Remove="website\wwwroot\manifest.json" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
