@@ -34,3 +34,17 @@ jobs:
         name: website
         path: website/**
         if-no-files-found: error
+    - name: Download Artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: my-artifact
+        path: distfiles
+    - name: deploy
+      uses: appleboy/scp-action@v0.1.4
+      with:
+        host: ${{secrets.SSH_HOST}}
+        key: ${{secrets.SSH_KEY}}
+        username: ${{secrets.SSH_USERNAME}}
+        passphrase: ${{ secrets.PASSPHRASE }}
+        source: distfiles/*
+        target: var/www/dead-bug
