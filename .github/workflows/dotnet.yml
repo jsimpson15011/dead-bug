@@ -27,7 +27,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish
-      run: dotnet publish dead-bug/dead-bug.csproj -c Release -o website
+      run: dotnet build --Release
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.3.1
       with:
