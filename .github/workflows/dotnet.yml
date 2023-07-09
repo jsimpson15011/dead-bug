@@ -37,7 +37,7 @@ jobs:
     - name: Download Artifact
       uses: actions/download-artifact@v3
       with:
-        name: my-artifact
+        name: website
         path: distfiles
     - name: deploy
       uses: appleboy/scp-action@v0.1.4
