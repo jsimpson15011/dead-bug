@@ -32,5 +32,5 @@ jobs:
       uses: actions/upload-artifact@v2.3.1
       with:
         name: dead-bug
-        path: dead-bug/dead-bug/**
+        path: work/dead-bug/**
         if-no-files-found: error
