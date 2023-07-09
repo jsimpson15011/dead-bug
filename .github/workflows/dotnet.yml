@@ -29,8 +29,8 @@ jobs:
     - name: Publish
       run: dotnet publish dead-bug.csproj -c Release -o website
     - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.3.1
+      uses: actions/upload-artifact@v2.2.2
       with:
-        name: dead-bug
-        path: /home/runner/work/dead-bug/**
+        name: website
+        path: dead-bug/website/**
         if-no-files-found: error
