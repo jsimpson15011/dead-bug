@@ -27,7 +27,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish
-      run: dotnet publish dead-bug.csproj -c Release -o website -a x64
+      run: dotnet publish dead-bug.csproj -c Release -o website -a linux-x64
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3
       with:
@@ -47,4 +47,4 @@ jobs:
         username: ${{secrets.SSH_USERNAME}}
         passphrase: ${{ secrets.PASSPHRASE }}
         source: distfiles/*
-        target: var/www/dead-bug
+        target: /var/www/dead-bug
