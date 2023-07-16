@@ -1,10 +1,23 @@
+using dead_bug.Contexts;
 using Microsoft.AspNetCore.HttpOverrides;
+using MySql.Data.MySqlClient;
+using MySql.EntityFrameworkCore.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddNewtonsoftJson(options =>
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+var conStrBuilder = new MySqlConnectionStringBuilder(
+    builder.Configuration.GetConnectionString("Data"));
+
+conStrBuilder.Password = builder.Configuration["DbPassword"];
+
+string connection = conStrBuilder.ConnectionString;
+builder.Services.AddMySQLServer<ApplicationDbContext>(connection);
 
 var app = builder.Build();
 
