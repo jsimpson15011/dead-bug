@@ -29,7 +29,6 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    app.UseForwardedHeaders();
     app.UseHsts();
 }
 else
