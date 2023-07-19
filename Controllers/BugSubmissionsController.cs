@@ -8,13 +8,13 @@ namespace dead_bug.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class BugSubmissionController : ControllerBase
+public class BugSubmissionsController : ControllerBase
 {
-    private readonly ILogger<BugSubmissionController> _logger;
+    private readonly ILogger<BugSubmissionsController> _logger;
 
     private readonly ApplicationDbContext _applicationDbContext;
 
-    public BugSubmissionController(ILogger<BugSubmissionController> logger, ApplicationDbContext context)
+    public BugSubmissionsController(ILogger<BugSubmissionsController> logger, ApplicationDbContext context)
     {
         _logger = logger;
         _applicationDbContext = context;
