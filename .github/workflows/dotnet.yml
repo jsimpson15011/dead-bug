@@ -48,14 +48,3 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         source: distfiles/*
         target: /var/www/dead-bug
-    - name: Restart Service
-      uses: appleboy/ssh-action@v0.1.2
-      with:
-          host: ${{secrets.SSH_HOST}}
-          key: ${{secrets.SSH_KEY}}
-          username: ${{secrets.SSH_USERNAME}}
-          passphrase: ${{ secrets.PASSPHRASE }}
-              
-          script: |
-                systemctl restart kestrel-dead-bug.service
-                echo 'Deployment success'
