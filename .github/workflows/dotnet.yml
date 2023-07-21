@@ -57,5 +57,5 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
               
           script: |
-                sudo systemctl restart kestrel-dead-bug.service
+                systemctl restart kestrel-dead-bug.service
                 echo 'Deployment success'
